@@ -1,0 +1,186 @@
+#Hannah Bauer
+#Integration Project, rough draft
+#COP1500
+#This program is a calculator that solves any 1 dementional motion kinematic equation.
+#This draft assumes that the user has a basic conceptual understanding of 1D Kinematics
+#This draft only computes whole numbers
+#the "%" and "//" opperators were used to satisfy rubric; will be used better in second draft that incoperates functions
+
+print ("Welcome to my Integration project!")
+print ("This program will help you to solve any 1D kinematics problem in physics")
+print (" To solve a real world 1D kinematics problem, certian input values are required \n depending on the desired outcome.")
+print ("Choose the value you are looking to calculate and the information you have, and this program will choose the appropriate \n equation to solve your problem")
+print ("You will also be provided with qualitative information about your numerical outcint(ome.")
+print ("Before you begin, how would you rate your knowledge of 1D kinematics? enter a number ")
+print (" 1-no prior experience") #OPTION UNDER CONSTRUCTION
+print (" 2-I know what is required to solve a kinematic equation and understand what variables are required to solve a problem properly")
+understanding = int(input())
+#THIS IS NOT COMPLETE
+while understanding == 1:
+    print ("here is a brief overview of how to begin solving kinematic equations.")
+    print ("Kinematic equations are a set of real equations that relate velocity, acceleration, displacement, and time to eachother.")
+    print ("Kinematics, branch of physics and a subdivision of classical mechanics concerned with the geometrically possible motion of a body or \n system of bodies without consideration of the forces involved")
+    print ("To use this calculator, you must have an understanding of the minimum required known vairables needed to find the missing variable.")
+    print ("See this file to observe the different relationships")
+    print (" ")
+    print ("interested in learning more about kinematics?,3 or \n do you want to go to the calculator?,2")
+    understanding = int(input())
+
+if understanding == 3:
+    print ("1-who are the parents of kinematic studies?")
+    print ("2-modern kinematics--post Newton")
+    print ("3-real world appliations")
+    fact_option = int(input("choose an area to learn more about!" ))
+    if fact_option == 1:
+        print ("In the 17th century, Galileo Galilei studied motion and how it can be quantified")
+        #more info will be added here, possible from a file
+    elif fact_option == 2:
+        print ("insert info about modern mechanics here")
+    elif fact_option == 3:
+        print ("applications of kinematics")
+    else:
+        print ("Sorry, thats not an option")
+        
+    #this will be a file that opens and has the kinematic equations listed    
+
+# The following variables are used within the program:
+#V = "velocity"
+#Vi = "initial velocity"
+#Vf = "final velocity"
+#ΔX = "displacement"
+#A = "acceleration"
+#G = 9.81
+#T = "time"
+
+else:
+    print ("Sorry, thats not an option")
+while understanding == 2:
+    print (" ")
+    #What Do you want to solve for?
+    print (" 1-displacement")
+    print ("2-acceleration")
+    print ("3-time")
+    print ("4-initial velocity")
+    print ("5-final velocity")
+    input1 = input( " What would you like to solve for:" )
+    #displacement
+    if input1 == "1":
+        print ( " Do you have a value for time? (yes or no) " )
+        input2 = input( )
+        if input2 == "yes":
+            Vf = int(input( "What is you Final velocity (m/s^2) " ))
+            Vi = int(input( "What is your initial velocity? (m/s^2) "))
+            T = int(input("What is your time (seconds)"))
+            displacement = (Vf - Vi)/2*T
+            fdisplacement = int(displacement) % 2
+            if fdisplacement == 0:
+                print( " Your displacement value is even" )
+            elif fdisplacement != 0:
+                print( "your displacement value is odd" )
+            print (" your displacement is ", (displacement), " meters")
+        elif input2 == "no":
+            Vf = int(input("What is you Final velocity (m/s^) " ))
+            Vi = int(input("What is your initial velocity? (m/s^) "))
+            A = int(input("What is your acceleration? (m/s^2) "))
+            displacement = (Vf**2 - Vi**2)/2*A
+            print (" your displacemtnt is ", (displacement), " meters ")
+            if A < 0 and Vf < Vi:
+                print("your body is slowing down")
+            #acceleration
+    elif input1 == "2":
+        print (" Do you have a value for time? (yes or no) ")
+        input3 = input( )
+        if input3 == "yes":
+            Vf = int(input( "What is you Final velocity (m/s^2) "))
+            Vi = int(input( "What is your initial velocity? (m/s^2) "))
+            T = int(input("What is your time (seconds)"))
+            acceleration = (Vf-Vi) / T
+            print ("your acceleration is" ,(acceleration), "meters per second squared")
+        elif input3 == "no":
+            Vf = int(input("What is you Final velocity (m/s^2) "))
+            Vi = int(input( "What is your initial velocity? (m/s^2) "))
+            ΔX = int(input( "What is your dispacement? (m/s^2) "))
+            acceleration = (Vf**2 - Vi**2) / 2*ΔX
+            if A < 0 and Vf < Vi:
+                print("your body is slowing down")
+            print ( " Your aveleration is", (acceleration), "meters per second squared" )
+    #time
+    elif input1 == "3":
+        print ( " Do you have a value for acceleration? (yes or no) ")
+        input4 = input( )
+        if input4 == "yes":
+            Vf = int(input( "What is you Final velocity (m/s^2) "))
+            Vi = int(input( "What is your initial velocity? (m/s^2) "))
+            a = int(input( "What is your acceleration? (m/s^2) "))
+            time = (Vf - Vi) / a
+            minutes = int(time) // 60
+            if minutes >=1:
+                seconds = minutes % 60
+                print ("your time is" , (minutes) , "minutes and", (seconds), "seconds")
+                if A < 0 and Vf < Vi:
+                    print("your body is slowing down")
+            print ( "your time is " , (time) , "seconds" )
+        elif input4 == "no":
+            Vf = int(input( "What is you Final velocity (m/s^2) "))
+            Vi = int(input( "What is your initial velocity? (m/s^2) "))
+            ΔX = int(input( "What is your displacement? (meters) "))
+            time = (2*ΔX) / (Vf**2 - Vi**2)
+            minutes = int(time) // 60
+            if minutes >=1:
+                seconds = minutes % 60
+                print ("your time is" , (minutes) , "minutes and", (seconds), "seconds")
+            print ( "your time is" , (time) , "seconds")
+    elif input1 == "4":
+        print ("Do you have a values for time and Vf? (yes or no)")
+        input5 = input( )
+        if input5 == "yes":
+            Vf = int(input( "What is you Final velocity (m/s^2) "))
+            t = int(input( "What is your time? (s) "))
+            ΔX = int(input( "What is your dispacement? (m/s^2) "))
+            initialvelocity = ΔX * t *2 - Vf
+            print ( " your initial velocity is" ,(initialvelocity), "meters per second" )
+        elif input5 == "no":
+            print ("Do you have values for acceleration and time (yes or no) ")
+            input6 = input( )
+            if input6 == "yes":
+                Vf = int(input( "What is you Final velocity (m/s) "))
+                t = int(input( "What is your time? (s) "))
+                a = int(input( "What is your acceleration? (m/s^2) "))
+                initialvelocity = a*t - Vf
+                print( " your initial velocity is", (initialvelocity), " meters per second")
+            elif input6 == "no":
+                print ( "Do you have values for displacement and time? (yes or no) ")
+                input7 ( )
+                if input7 == "yes":
+                    a = int(input( "What is you acceleration(m/s^2) "))
+                    t = int(input( "What is your time? (s) "))
+                    ΔX = int(input( "What is your dispacement? (m/s^2) "))
+                    initialvelocity = (ΔX - 2*a*t**2)*t
+                    print ( "your initial velocity is" , (initialvelocity), " meters per second" )
+    elif input1 == "5":
+        print ( "Do you have values for acceleration and time (yes or no) " )
+        input8 = input( )
+        if input8 == "yes":
+            a = int(input( "What is you acceleration(m/s^2) "))
+            t = int(input( "What is your time? (s) "))
+            vi = int(input( "What is your initial velocity? (m/s) "))
+            finalvelocity = vi + t*a
+            print ( " your final velocity is ", (finalvelocity), "meters per second" )
+        elif input8 == "no":
+            print ("Do you have values for acceleration and displacement? (yes or no) ")
+            input9 = input( )
+            if input9 == "yes":
+                a = int(input( "What is you acceleration(m/s^2) "))
+                t = int(input( "What is your time? (s) "))
+                ΔX = int(input( "What is your displacement? (m/s) "))
+            elif input9 == "no":
+                print ("Do you have values for time and displacement? (yes or no) ")
+                input10 = input( )
+                if input10 == "yes":
+                    vi = int(input( "What is you initial velocity(m/s^2) "))
+                    t = int(input( "What is your time? (s) "))
+                    ΔX = int(input( "What is your displacement? (m/s) "))
+                    finalvelocity = (2*ΔX / t) - vi
+                    print ( " your final velocity is" , (finalvelocity), "meters per second" )
+    else:
+        print( "Oops! that isn't an option! ")
